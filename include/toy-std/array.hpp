@@ -40,6 +40,19 @@ public:
 
   constexpr size_t size() const { return S; }
 
+  void fill(const T &value) {
+    for (size_type i = 0; i < S; i++)
+      _data[i] = value;
+  }
+
+  void swap(array &other) {
+    for (size_type i = 0; i < S; i++) {
+      T temp = _data[i];
+      _data[i] = other._data[i];
+      other._data[i] = temp;
+    }
+  }
+  
 private:
   T _data[S];
   bool _check_bounds(size_type pos) { return pos >= 0 && pos < S; }

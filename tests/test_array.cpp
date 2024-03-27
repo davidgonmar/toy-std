@@ -50,6 +50,25 @@ TEST_F(Base, data) {
   EXPECT_EQ(arr.data(), &arr[0]);
 }
 
+TEST_F(Base, fill) {
+  arr.fill(10);
+  for (int i = 0; i < 5; i++) {
+    EXPECT_EQ(arr[i], 10);
+  }
+}
+
+TEST_F(Base, swap) {
+  toy::array<int, 5> arr2;
+  arr2[0] = 10;
+  arr2[1] = 20;
+  arr2[2] = 30;
+  arr2[3] = 40;
+  arr2[4] = 50;
+  arr.swap(arr2);
+  for (int i = 0; i < 5; i++) {
+    EXPECT_EQ(arr[i], arr2[i]);
+  }
+}
 
 int main() {
 
